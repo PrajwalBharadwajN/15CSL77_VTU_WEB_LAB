@@ -1,0 +1,39 @@
+<html>
+	<head>
+	<title> TEXT SHRINKING & GROWING </title>
+	<script>
+		var font=0,load;
+		function start()
+		{
+			load=window.setInterval("incr()",100);
+		}
+		function incr()
+		{
+			font++;
+			disp.innerHTML="TEXT-GROWING: "+font+"pt";
+			disp.style.fontSize= font+"pt"
+			disp.style.color="red";
+			if(font>50)
+			{
+				window.clearTimeout(load);
+				load=window.setInterval("decr()",100);
+			}
+		}
+		function decr()
+		{
+			font--;
+			disp.innerHTML="TEXT-SHRINKING: "+font+"pt";
+			disp.style.fontSize=font+"pt"
+			disp.style.color="blue";
+			if(font==5)
+			{
+				window.clearTimeout(load);
+				load=window.setInterval("incr()",100);
+			}
+		}
+	</script>
+	</head>
+	<body onload="start()">
+	<center><p style="margin-top:250px" id="disp"></p></center>
+	</body>
+</html>
